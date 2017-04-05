@@ -1,0 +1,23 @@
+<h1>Lions#new</h1>
+<p>Find me in app/views/lions/new.html.erb</p>
+
+
+<p><%= Post.calculate(1, "+", 3) %>
+  <%= Post.calculate(1, "x", 3) %>
+  <%= Post.calculate(7, "/", 3) %></p>
+  
+     <%= form_for @post do |f| %>
+ 
+    <%= f.number_field :number1 %>
+    <%= f.text_field :operator %>
+    <%= f.number_field :number2 %>
+    <%= f.submit "제출" %>
+
+     <% end %>
+     
+      <% Post.all.each do |p| %>
+    
+        <%= p.number1 %> 
+        <%= p.operator %> <%= p.number2 %> = <%= Post.calculate(p.number1, p.operator, p.number2) %> 
+        
+    <% end %>
